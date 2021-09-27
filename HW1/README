@@ -1,0 +1,16 @@
+HW1: Decision Trees
+---------------------
+
+In order to get prediction errors for each dataset, please refer to the "__main__" section.
+
+1. For the Car Problem:
+Use "car_train_df" and "car_test_df"
+
+2. For the Bank Problem:
+    - Use "bank_train_df" and "bank_test_df" for when "unknown" is treated as a value.
+    - Use "adjusted_bank_train_df" and "adjusted_bank_test_df" when "unknown" is treated as a MISSING value.
+
+3. Substitute the desired datasets in the run_model() method in the main section, and the out put will contain two dictionaries:
+
+4. The first dictionary will contain the training errors in the order of Information Gain, Majority Error, and Gini Index.
+   The second dictionary will contain the testing errors for the same order.
