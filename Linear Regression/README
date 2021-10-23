@@ -1,0 +1,10 @@
+HW2 Part 2: Linear Regression
+------------------------------
+Please refer to the __main__ section of the main.py file in this directory to run the models.
+
+Main Methods:
+    1. batch_gradient_descent
+    2. SGD
+    3. analyze_LMS
+
+To see the required outputs of any of these three algorithms, please uncomment the line in the __main__ section.
