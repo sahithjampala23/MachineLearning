@@ -13,13 +13,19 @@ Implementation of standard perceptron algorithm.
 
 def standard_perceptron(train_df, test_df, T):
     # 1. Initialize weight vector.
-    w = np.zeros(len(train_df.columns) - 1)
+    w = np.zeros(len(train_df.columns))
     test_errors = dict.fromkeys(i for i in range(1, T))
+    test_df['1'] = 1
+    col = test_df.pop('1')
+    test_df.insert(0, '1', col)
     testX = np.array(test_df.drop(['label'], axis=1))
     # 2. For epoch = 1...T
     for epoch in range(1, T + 1):
         # A. Shuffle data
         shuffled_df = train_df.sample(frac=1).reset_index(drop=True)
+        shuffled_df['1'] = 1
+        col = shuffled_df.pop('1')
+        shuffled_df.insert(0, '1', col)
         X = np.array(shuffled_df.drop('label', axis=1))
         y = np.array(shuffled_df['label'])
         # B. For each training example...
@@ -55,20 +61,29 @@ Implementation of voted perceptron algorithm.
 
 def voted_perceptron(train_df, test_df, T):
     # 1. Initialize W and m. (& C, training arrays, test array)
-    w = np.zeros(len(train_df.columns) - 1)
+    w = np.zeros(len(train_df.columns))
     W = [w]
     m = 0
     C = dict.fromkeys(i for i in range(0, T))
     test_errors = 0
+    test_df['1'] = 1
+    col = test_df.pop('1')
+    test_df.insert(0, '1', col)
     testX = np.array(test_df.drop(['label'], axis=1))
     # 2. For epoch in 1...T:
     for epoch in range(1, T + 1):
         # A. Shuffle data
         shuffled_df = train_df.sample(frac=1).reset_index(drop=True)
+        shuffled_df['1'] = 1
+        col = shuffled_df.pop('1')
+        shuffled_df.insert(0, '1', col)
         X = np.array(shuffled_df.drop('label', axis=1))
         y = np.array(shuffled_df['label'])
+
+
         # B. For each training example...
         for i in range(len(X)):
+
             # C. Update W if error <= 0. Also update count of correct predictions.
             error = y[i] * (W[m].T.dot(X[i]))
             if error <= 0:
@@ -101,12 +116,18 @@ Implementation of standard perceptron algorithm.
 
 
 def averaged_perceptron(train_df, test_df, T):
-    w = np.zeros(len(train_df.columns) - 1)
-    a = np.zeros(len(train_df.columns) - 1)
+    w = np.zeros(len(train_df.columns))
+    a = np.zeros(len(train_df.columns))
     test_errors = 0
+    test_df['1'] = 1
+    col = test_df.pop('1')
+    test_df.insert(0, '1', col)
     testX = np.array(test_df.drop(['label'], axis=1))
     for epoch in range(1, T + 1):
         shuffled_df = train_df.sample(frac=1).reset_index(drop=True)
+        shuffled_df['1'] = 1
+        col = shuffled_df.pop('1')
+        shuffled_df.insert(0, '1', col)
         X = np.array(shuffled_df.drop('label', axis=1))
         y = np.array(shuffled_df['label'])
         for i in range(len(X)):
@@ -132,5 +153,5 @@ if __name__ == '__main__':
     test_df.loc[test_df.label == 0, "label"] = -1
 
     print("Standard Perceptron: \n", "Learned Weight Vector & Error: ", standard_perceptron(train_df.copy(), test_df.copy(), 10))
-    print("Voted Perceptron: \n", "Learned Weight Vectors, their Counts & Error: ", voted_perceptron(train_df.copy(), test_df.copy(), 10))
+    #("Voted Perceptron: \n", "Learned Weight Vectors, their Counts & Error: ", voted_perceptron(train_df.copy(), test_df.copy(), 10))
     print("Averaged Perceptron: \n", "Learned Weight Vectors, their Counts & Error: ", averaged_perceptron(train_df.copy(), test_df.copy(), 10))
