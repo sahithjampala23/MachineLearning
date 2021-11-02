@@ -1,0 +1,17 @@
+HW3: Perceptron
+----------------------
+In order to run the code, please run the shell script in this directory titled "runHW3.sh".
+The script will output the following:
+    1. Standard Perceptron Algorithm Results:
+        a. Learned Weight Vector
+        b. The average prediction error on the test dataset.
+    2. Voted Perceptron Algorithm Results:
+        a. W: A dictionary of all unique weight vectors.
+        b. C: A dictionary of the count for correctly predicted examples for each weight vector.
+        c. The average prediction error on the test dataset.
+    3. Averaged Perceptron Algorithm Results:
+        a. Learned Weight Vector
+        b. The average prediction error on the test dataset.
+
+*Please note that the number of weight vectors is large ~570. Therefore when it outputs in the terminal, it may take a
+lot of space.*
