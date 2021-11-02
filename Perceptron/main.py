@@ -153,5 +153,5 @@ if __name__ == '__main__':
     test_df.loc[test_df.label == 0, "label"] = -1
 
     print("Standard Perceptron: \n", "Learned Weight Vector & Error: ", standard_perceptron(train_df.copy(), test_df.copy(), 10))
-    #("Voted Perceptron: \n", "Learned Weight Vectors, their Counts & Error: ", voted_perceptron(train_df.copy(), test_df.copy(), 10))
+    print("Voted Perceptron: \n", "Learned Weight Vectors, their Counts & Error: ", voted_perceptron(train_df.copy(), test_df.copy(), 10))
     print("Averaged Perceptron: \n", "Learned Weight Vectors, their Counts & Error: ", averaged_perceptron(train_df.copy(), test_df.copy(), 10))
