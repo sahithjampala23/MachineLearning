@@ -1,0 +1,17 @@
+HW2 Part 1: Ensemble Learning
+------------------------------
+- In order to run any algorithm, please refer to the __main__ section of the code, (bottom of main.py file).
+
+- Main Algorithms:
+    1. adaboost: Depending on the "T" passed to the method, adaboost will produce T weak classifiers, and create a strong
+                 classifier by giving a vote and a set of predictions for each classifier t. The algorithm is set to output
+                 the training and testing error of the final predictions for each respectively.
+    2. bagged_trees: Depending on the desired learner, bagged_trees will create a collection of T trees, through ID3 or
+                     RandomForest, and produce final predictions by taking the average of each tree. Note that the runtimes
+                     for these algorithms are slower since there is not early stopping or pruning of the trees.
+
+- Return Values of Algorithms:
+    1. adaboost: At the moment, adaboost returns the errors of the final hypothesis for the training and test errors. It can easily
+                 be changed to return the actual datasets and the corresponding predictions with a simple change to the return value.
+    2. bagged_trees: At the moment, bagged_trees returns the error of the average predictions for the training and test datasets. It can easily
+                     be changed to return the actual datasets and the corresponding predictions with a simple change to the return value.

@@ -1,0 +1,5 @@
+HW4: SVM
+
+The output of the .sh file will first contain the training, testing error and then the feature weights vector.
+Then, it will output the training and testing errors of the dual domain SVM algorithm. Note that this takes
+a little longer to compute.
