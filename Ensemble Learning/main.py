@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import pandas as pd
 import numpy as np
 import math
@@ -64,7 +64,7 @@ Implementation of ID3 algorithm that creates Decision Stumps.
 
 
 def ID3_stump(S, Attributes, Label, max_depth):
-=======
+
 import math
 import random
 from DecisionTree import main as dt
@@ -81,7 +81,7 @@ Implementation of ID3 algorithm to create Decision Stumps.
 
 
 def ID3_stump(S, Attributes, Label):
->>>>>>> 90bce8c4474a02a42d0877a7b86722d3a1c86c3a
+
     # 1. Base Cases
     if S['label'].nunique() == 1:
         return S['label'][0]
